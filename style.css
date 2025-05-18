@@ -1,0 +1,28 @@
+body {
+    background-image: url("logo.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    text-align: center;
+
+    color: yellow;
+}
+
+h1 {
+    color: orange;
+}
+
+
+p {
+    font-size: 175%;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 450px;
+    height: 300px;
+    margin: 10px;
+}

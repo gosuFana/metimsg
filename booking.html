@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Massage Booking</title>
+
+  <a href="Index.html">Index</a>
+  <a href="Prices.html">Prices</a>
+  <a href="Galery.html">Galery</a>
+  <a href="elerhetoseg.html">elerhetoseg</a>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 70%;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .services-list {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .service-item {
+      width: 30%;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .service-item h3 {
+      margin: 10px 0;
+    }
+
+    .service-item p {
+      font-size: 14px;
+    }
+
+    .service-item button {
+      background-color: #acaf4c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .service-item button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Book Your Massage</h1>
+
+  <div class="services-list">
+    <div class="service-item">
+      <h3>Traditional Thai Massage</h3>
+      <p>Helps relieve muscle pain and soreness.</p>
+      <button onclick="chooseService('Traditional Thai Massage 30min')">30 minute</button>
+      <button onclick="chooseService('Traditional Thai Massage 45min')">45 minute</button>
+      <button onclick="chooseService('Traditional Thai Massage 60min')">60 minute</button>
+      <button onclick="chooseService('Traditional Thai Massage 120min')">120 minute</button>
+    </div>
+    <div class="service-item">
+      <h3>Mixed Thai Massage</h3>
+      <p>Improves flexibility, reduces stress and anxiety.</p>
+      <button onclick="chooseService('Mixed Thai Massage 30min')">30 minute</button>
+      <button onclick="chooseService('Mixed Thai Massage 45min')">45 minute</button>
+      <button onclick="chooseService('Mixed Thai Massage 60min')">60 minute</button>
+      <button onclick="chooseService('Mixed Thai Massage 120min')">120 minute</button>
+    </div>
+    <div class="service-item">
+      <h3>Relaxin Oil Massage</h3>
+      <p>Soothes skin and promotes relaxation.</p>
+      <button onclick="chooseService('Relaxin Oil Massage 30min')">30 minute</button>
+      <button onclick="chooseService('Relaxin Oil Massage 45min')">45 minute</button>
+      <button onclick="chooseService('Relaxin Oil Massage 60min')">60 minute</button>
+      <button onclick="chooseService('Relaxin Oil Massage 120min')">120 minute</button>
+    </div>
+    <div class="service-item">
+      <h3>Facial Massage</h3>
+      <p>Improves circulation, relaxes muscles, smooths skin.</p>
+      <button onclick="chooseService('Facial Massage 45 minute')">45 minute</button>
+    </div>
+    <div class="service-item">
+      <h3>Neck/Head/Shoulder or Back Massage</h3>
+      <p>Reduces tension and improves posture.</p>
+      <button onclick="chooseService('Neck/Head and Shoulders 30min')">30 minute</button>
+      <button onclick="chooseService('Neck/Head and Shoulders 45min')">45 minute</button>
+    </div>
+    <div class="service-item">
+      <h3>Foot Massage</h3>
+      <p>Boosts circulation and relieves stress.</p>
+      <button onclick="chooseService('Foot Massage 30min')">30 minute</button>
+      <button onclick="chooseService('Foot Massage 45min')">45 minute</button>
+    </div>
+  </div>
+
+  <h2>Fill in Your Booking Details</h2>
+
+  <form id="bookingForm" method="POST">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Your Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+    </div>
+
+    <div class="form-group">
+      <label for="service">Selected Service</label>
+      <input type="text" id="service" name="service" readonly required />
+    </div>
+
+    <div class="form-group">
+      <label for="date">Select Date</label>
+      <input type="date" id="date" name="date" required />
+    </div>
+
+    <div class="form-group">
+      <label for="time">Select Time</label>
+      <select id="time" name="time" required>
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="10:30 AM">10:30 AM</option>
+        <option value="11:00 AM">11:00 AM</option>
+        <!-- ... you can keep going with all times ... -->
+        <option value="9:30 PM">9:30 PM</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="people">People</label>
+      <select id="people" name="people" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+    </div>
+
+    <button type="submit">Book Now</button>
+  </form>
+</div>
+
+<script>
+  function chooseService(service) {
+    document.getElementById("service").value = service;
+  }
+
+  document.getElementById("bookingForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      service: document.getElementById("service").value,
+      date: document.getElementById("date").value,
+      time: document.getElementById("time").value,
+      people: document.getElementById("people").value,
+    };
+
+    fetch("http://localhost:3000/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.text())
+      .then((response) => {
+        alert("Booking successful! We’ll contact you soon.");
+        document.getElementById("bookingForm").reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("There was an error. Please try again.");
+      });
+  });
+</script>
+
+</body>
+</html>
