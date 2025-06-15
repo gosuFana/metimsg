@@ -1,10 +1,18 @@
 body {
+
+
     background-image: url("logo.jpg");
     background-repeat: no-repeat;
     background-position-x: center;
     text-align: center;
-
+    background-size: cover;
     color: yellow;
+
+        /* Add a semi-transparent background color overlay */
+    background-color: rgba(0, 0, 0, 0.5); 
+    background-blend-mode: multiply; Or try other modes like overlay, screen */
+
+
 }
 
 h1 {

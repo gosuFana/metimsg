@@ -13,6 +13,11 @@ app.use(bodyParser.json());
 app.post("/send-email", (req, res) => {
   const { name, email, phone, service, date, time, people } = req.body;
 
+   // ✅ Basic validation to prevent missing fields
+  if (!name || !email || !phone || !service || !date || !time || !people) {
+  return res.status(400).send("Please fill in all required fields.");
+}
+
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
